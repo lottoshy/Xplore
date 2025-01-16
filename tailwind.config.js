@@ -5,7 +5,18 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: { 
+        'sans': ['DM Sans', 'sans-serif'],
+        'playfair': ['Playfair Display', 'sans-serif'],
+     },
+     backgroundImage: {
+      'tropical': "url('assets/images/home-package-1.png')"
+     },
+     colors: {
+      "default": "#141414"
+     }
+    },
   },
   plugins: [],
 }
