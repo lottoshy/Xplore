@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className='w-full h-[50vh] absolute bg-default text-white'>
-      <div className='flex flex-row justify-evenly mt-10'>
+    <footer className='w-full h-[50vh] relative bg-default text-white'>
+      <div className='flex flex-row justify-evenly pt-10'>
         <span className='text-left flex flex-col gap-2'>
           <p className='font-semibold'>Discover</p>
           <ul className='opacity-70 flex flex-col gap-2'>

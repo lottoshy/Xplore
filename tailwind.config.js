@@ -14,7 +14,8 @@ export default {
       'tropical': "url('assets/images/home-package-1.png')"
      },
      colors: {
-      "default": "#141414"
+      "default": "#141414",
+      "cream" : "#f3f3f3"
      }
     },
   },
