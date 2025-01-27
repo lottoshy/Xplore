@@ -11,6 +11,7 @@ import AboutCompany from './pages/AboutCompany';
 import Contact from './pages/Contact';
 import { Provider } from 'react-redux';
 import store from './redux/store'
+import Tripdetails from './pages/Tripdetails';
 
 
 const router = createBrowserRouter([
@@ -27,12 +28,16 @@ const router = createBrowserRouter([
     element: <Gallery/>
   },
   {
-    path: "/abou-us",
+    path: "/about-us",
     element: <AboutCompany/>
   },
   {
     path: "/contact",
     element: <Contact/>
+  },
+  {
+    path: "/package/:name",
+    element: <Tripdetails/>
   }
 ])
 function App() {

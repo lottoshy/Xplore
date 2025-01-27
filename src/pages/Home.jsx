@@ -6,7 +6,24 @@ import VideoCard from '../components/VideoCard'
 import TestemonialsCard from "../components/TestemonialsCard"
 import ContactForm from "../components/ContactForm"
 import Footer from "../components/Footer"
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
+
+// const [packages, setPackages] = React.useState([])
+// React.useEffect(() => {
+//   axios.get("http://localhost:5000/api/packages").then(res => setPackages(res.data))
+// }, [])
 function Home() {
+  const [packages, setPackages] = React.useState([]);
+
+  const navigate = useNavigate()
+
+  React.useEffect(() => {
+    axios.get("http://localhost:5000/api/packages")
+      .then(res => setPackages(res.data))
+      .catch(err => console.error(err)); // Optional: handle errors
+  }, []);
+
   return (
     <>
       <Nav isDarkMode="false" positon="absolute"/>
@@ -36,14 +53,19 @@ function Home() {
           </h2>
           <span className='w-1/3 flex flex-col gap-5'>
           <p className='text-xl text-left opacity-70 leading-7'>Indulge in our carefully crafted packages to immerse you in the most captivating and transformative travel adventures.</p>
-          <button className='w-32 text-left font-semibold hover:underline'>See all packages</button>
+          <button onClick={() => navigate("/trips")} className='w-32 text-left font-semibold hover:underline'>See all packages</button>
           </span>
         </span>
         <div className='mx-20 gap-6 flex flex-row mt-24'>
-          <Card name="Tropical Paradise Recreation" days="7" nights="6" price="999" image="/assets/images/home-package-1-1.jpg"/>
+{packages.slice(0,4).map((pkg, i) => (
+  
+  <Card key={i} name={pkg.title} duration={pkg.duration} price={pkg.price} image={pkg.cardImage}/>
+))}
+
+          {/* <Card name="" days="7" nights="6" price="999" image="/assets/images/home-package-1-1.jpg"/>
           <Card name="Cruise Gateway Expedition" days="7" nights="6" price="1799" image="/assets/images/home-package-2.png"/>
           <Card name="Cultural Immersion in Morocco" days="6" nights="5" price="1199" image="/assets/images/home-package-3.png"/>
-          <Card name="River Expedition in Thurnia" days="7" nights="6" price="899" image="/assets/images/home-package-4.png"/>
+          <Card name="River Expedition in Thurnia" days="7" nights="6" price="899" image="/assets/images/home-package-4.png"/> */}
         </div>
       </div>
       <div className='w-full h-screen bg-cream px-20 text-default flex flex-row gap-20'>

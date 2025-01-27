@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const Header = ({image, heading, headingitalic}) => {
+const Header = ({ image, heading, headingitalic }) => {
   return (
-    <div className=''>
-        <img src={image} alt="" />
-        <h2 className='text-[80px] text-white w-full h-3/4 flex gap-4 absolute top-0 left-0 flex justify-center items-center  font-sans'>{heading}  <span className='font-playfair italic'>  {headingitalic}</span></h2>
+    <div className='relative w-full h-[400px]'> {/* Set a height for the container */}
+      <img src={image} alt="" className='w-full h-full object-cover' /> {/* Ensure the image covers the container */}
+      <h2 className='text-[80px] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center font-sans'>
+        {heading} <span className='font-playfair italic'>{headingitalic}</span>
+      </h2>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
